@@ -5,12 +5,8 @@ plugin/
 minimal.lua
 .repro
 lua/cosmic/compiled.lua
-lua/cosmic/config/editor.lua
-lua/cosmic/config/config.lua
-lua/cosmic/config/mappings.lua
-lua/cosmic/config/plugins.lua
-lua/cosmic/config/utils.lua
-ginit.vim
-.nvimlog
-nvim.log
-lua/cosmic/plugins/.DS_Store
+# lua/cosmic/config/editor.lua
+# lua/cosmic/config/config.lua
+# lua/cosmic/config/mappings.lua
+# lua/cosmic/config/plugins.lua
+# lua/cosmic/config/utils.lua
