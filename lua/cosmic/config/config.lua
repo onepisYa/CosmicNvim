@@ -7,6 +7,7 @@ local config = {
     -- LSP settings
     lsp = {
         -- True/false or table of filetypes {'.ts', '.js',}
+        -- format_on_save = {'.ts', '.js'},
         format_on_save = true,
         -- Time in MS before format timeout
         format_timeout = 3000,
@@ -63,7 +64,7 @@ local config = {
     plugins = {
         -- See https://github.com/rmagatti/auto-session#%EF%B8%8F-configuration
         auto_session = {
-            --  auto-session provide two command. 
+            --  auto-session provide two command.
             -- :SaveSession " saves or creates a session in the currently set `auto_session_root_dir`.
             -- :SaveSession ~/my/custom/path " saves or creates a session in the specified directory path.
             -- :RestoreSession " restores a previously saved session based on the `cwd`.
@@ -74,7 +75,7 @@ local config = {
             -- :Autosession search
             -- :Autosession delete
             -- Dashboard plugin provide four command
-            -- DashboardNewFile  
+            -- DashboardNewFile
             -- SessionSave,SessionLoad,SessionDelete
             auto_session_enabled = true,
             auto_restore_enabled = false,
