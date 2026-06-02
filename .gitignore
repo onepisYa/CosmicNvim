@@ -10,3 +10,4 @@ lua/cosmic/compiled.lua
 # lua/cosmic/config/mappings.lua
 # lua/cosmic/config/plugins.lua
 # lua/cosmic/config/utils.lua
+lua/cosmic/plugins/.DS_Store
