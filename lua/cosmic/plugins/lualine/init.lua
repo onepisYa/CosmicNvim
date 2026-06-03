@@ -97,7 +97,11 @@ local function get_opts()
         custom_sections.branch,
       },
     },
-    extensions = { 'quickfix', 'fugitive', 'oil', 'mason', 'toggleterm', 'lazy', 'oil' },
+    -- Only bundled lualine extensions are listed. Pinned versions of
+    -- `oil.nvim`, `mason.nvim`, and `lazy.nvim` no longer ship their
+    -- `lualine.extensions.*` modules, so requesting them surfaces
+    -- `:LualineNotices` warnings at every statusline refresh.
+    extensions = { 'quickfix', 'fugitive', 'toggleterm' },
   }
 end
 

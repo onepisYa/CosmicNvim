@@ -32,11 +32,17 @@ end
 return {
   'numToStr/Comment.nvim',
   dependencies = {
+    -- The pinned version of nvim-ts-context-commentstring only exposes
+    -- `init()` (which registers the treesitter module), not `setup()`.
+    -- Triggering `init` via `init = ...` keeps the dependency compatible
+    -- with both the legacy and the modern API.
     {
       'JoosepAlviste/nvim-ts-context-commentstring',
-      opts = {
-        enable_autocmd = false,
-      },
+      init = function()
+        if type(require('ts_context_commentstring').init) == 'function' then
+          require('ts_context_commentstring').init()
+        end
+      end,
     },
   },
   opts = {

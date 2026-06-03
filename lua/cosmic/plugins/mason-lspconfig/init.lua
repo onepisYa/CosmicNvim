@@ -1,10 +1,27 @@
 local user_config = require('cosmic.core.user')
 
+-- Servers that the user keeps configured but that are not valid
+-- `nvim-lspconfig` entries and therefore must not be passed to
+-- `mason-lspconfig.ensure_installed` (which only accepts lspconfig names).
+-- Examples: `null_ls` (null-ls source framework), `tsserver` (a
+-- non-lspconfig alias for the TypeScript language server).
+local non_lspconfig_servers = {
+  null_ls = true,
+  tsserver = true,
+}
+
 ---@return string[]
 local function get_enabled_servers()
   local servers = vim.tbl_keys(user_config.lsp.resolved_servers)
   table.sort(servers)
-  return servers
+
+  local result = {}
+  for _, server_name in ipairs(servers) do
+    if not non_lspconfig_servers[server_name] then
+      result[#result + 1] = server_name
+    end
+  end
+  return result
 end
 
 -- set up lsp servers

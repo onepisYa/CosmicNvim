@@ -28,13 +28,10 @@ local config = {
             tsserver = {
                 -- Disable formatting (defaults to true)
                 format = false,
-                -- OR add/override server options
-                opts = {
-                    on_attach = function(client, bufnr)
-                    end,
-                    flags = {
-                        debounce_text_changes = 150
-                    }
+                on_attach = function(client, bufnr)
+                end,
+                flags = {
+                    debounce_text_changes = 150
                 }
             },
             -- See Cosmic defaults lsp/providers/null_ls.lua and https://github.com/jose-elias-alvarez/null-ls.nvim/
@@ -61,86 +58,46 @@ local config = {
     },
 
     -- adjust default plugin settings
+    -- Plugin management (lazy.nvim) -- must be a list of lazy.nvim specs.
     plugins = {
-        -- See https://github.com/rmagatti/auto-session#%EF%B8%8F-configuration
-        auto_session = {
-            --  auto-session provide two command.
-            -- :SaveSession " saves or creates a session in the currently set `auto_session_root_dir`.
-            -- :SaveSession ~/my/custom/path " saves or creates a session in the specified directory path.
-            -- :RestoreSession " restores a previously saved session based on the `cwd`.
-            -- :RestoreSession ~/my/custom/path " restores a previously saved session based on the provided path.
-            -- :RestoreSessionFromFile ~/session/path " restores any currently saved session
-            -- :DeleteSession " deletes a session in the currently set `auto_session_root_dir`.
-            -- :DeleteSession ~/my/custom/path " deleetes a session based on the provided path.
-            -- :Autosession search
-            -- :Autosession delete
-            -- Dashboard plugin provide four command
-            -- DashboardNewFile
-            -- SessionSave,SessionLoad,SessionDelete
-            auto_session_enabled = true,
-            auto_restore_enabled = false,
-            auto_save_enabled = false,
-            auto_session_root_dir = vim.fn.stdpath('data') .. "/sessions/auto_session/"
+      -- Override built-in auto-session with custom options
+      {
+        'rmagatti/auto-session',
+        opts = {
+          auto_session_enabled = true,
+          auto_restore_enabled = false,
+          auto_save_enabled = false,
+          auto_session_root_dir = vim.fn.stdpath('data') .. '/sessions/auto_session/',
         },
-        -- https://github.com/folke/noice.nvim
-        noice = {
+      },
+      -- Override built-in noice with custom notify + views
+      {
+        'folke/noice.nvim',
+        opts = {
+          notify = {
+            enabled = true,
+            view = 'notify',
+          },
+          views = {
             notify = {
-                -- Noice can be used as `vim.notify` so you can route any notification like other messages
-                -- Notification messages have their level and other properties set.
-                -- event is always "notify" and kind can be any log level as a string
-                -- The default routes will forward notifications to nvim-notify
-                -- Benefit of using Noice for this is the routing and consistent history view
-                enabled = true,
-                view = "notify"
+              merge = true,
             },
-            views = {
-                notify = {
-                    merge = true
-                }
-            },
-            format = {},
-            filters = {},
-            routes = {},
-            status = {}
+          },
         },
-        -- https://github.com/numToStr/Comment.nvim#configuration-optional
-        comment_nvim = {},
-        -- See https://github.com/CosmicNvim/cosmic-ui#%EF%B8%8F-configuration
-        cosmic_ui = {},
-        -- See :h vim.diagnostic.config for all diagnostic configuration options
-        diagnostic = {},
-        -- See :h gitsigns-usage
-        gitsigns = {},
-        -- See https://git.sr.ht/~whynothugo/lsp_lines.nvim
-        lsp_lines = {
-            -- additional flag only for CosmicNvim
-            -- true - loads plugin and is enabled at start
-            -- false - loads plugin but is not enabled at start
-            -- you may use <leader>ld to toggle
-            enable_on_start = true
+      },
+      -- Override built-in tokyonight with transparent background
+      {
+        'folke/tokyonight.nvim',
+        opts = {
+          transparent = true,
         },
-        -- See https://github.com/ray-x/lsp_signature.nvim#full-configuration-with-default-values
-        lsp_signature = {},
-        -- See https://github.com/nvim-lualine/lualine.nvim#default-configuration
-        lualine = {},
-        -- See https://github.com/L3MON4D3/LuaSnip/blob/577045e9adf325e58f690f4d4b4a293f3dcec1b3/README.md#config
-        luasnip = {},
-        -- See :h telescope.setup
-        telescope = {},
-        -- See https://github.com/folke/todo-comments.nvim#%EF%B8%8F-configuration
-        todo_comments = {},
-        -- See :h nvim-treesitter-quickstart
-        treesitter = {},
-        -- See :h cmp-usage
-        nvim_cmp = {},
-        -- See :h nvim-tree.setup
-        -- https://github.com/nvim-tree/nvim-tree.lua
-        nvim_tree = {},
-        -- 主题配置
-        -- https://github.com/folke/tokyonight.nvim
-        tokyonight = {
-            transparent = true
-        }
+      },
+      -- Extra plugins (formerly under `add_plugins`)
+      'ggandor/lightspeed.nvim',
+      {
+        'romgrk/barbar.nvim',
+        dependencies = { 'nvim-tree/nvim-web-devicons' },
+      },
     },
 
     -- Disable plugins default enabled by CosmicNvim

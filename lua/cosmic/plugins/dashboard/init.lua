@@ -84,5 +84,6 @@ return {
         db.preview_file_width = 70
     end,
     event = 'VimEnter',
-    enabled = not vim.tbl_contains(user_config.disable_builtin_plugins, 'dashboard')
+    enabled = user_config.disable_builtin_plugins == nil
+        or not vim.tbl_contains(user_config.disable_builtin_plugins, 'dashboard')
 }
