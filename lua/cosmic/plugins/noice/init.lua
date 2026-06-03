@@ -1,6 +1,14 @@
 return {
   'folke/noice.nvim',
   opts = {
+    -- Surface the underlying error and traceback in noice
+    -- error notifications instead of the generic wrapper message
+    -- (e.g. "An error happened while handling a ui event"). The
+    -- default `debug = false` makes `noice.util.call.format` drop
+    -- the actual `err` and only emit `opts.msg`. Flipping this to
+    -- `true` restores the err + debug.traceback. Users can still
+    -- override with `debug = false` in their personal config.
+    debug = true,
     presets = {
       lsp_doc_border = true,
       long_message_to_split = true,
