@@ -74,6 +74,7 @@ end
 -- Install nvim-treesitter compatibility shims (predicate registration
 -- with `force = true`, empty query overrides) BEFORE any plugin loads.
 require('cosmic.core.ts_compat').setup()
+require('cosmic.core.deprec').setup()
 
 local cosmic_modules = {
   'cosmic.core.editor',
@@ -104,6 +105,10 @@ for _, mod in ipairs(cosmic_modules) do
   local ok, err = pcall(require, mod)
   -- cosmic.config files may or may not be present
   if not ok and not mod:find('cosmic.config') then
-    error(('Error loading %s...\n\n%s'):format(mod, err))
+    local trace = debug.traceback('', 2)
+    error(
+      ('Error loading %s...\n\n%s\n\nstack traceback:\n%s')
+        :format(mod, tostring(err), trace)
+    )
   end
 end
