@@ -1,0 +1,112 @@
+{
+  event = "grid_destroy",
+  kind = 3
+}
+{
+  event = "msg_showcmd",
+  kind = { { 0, "j", 0 } }
+}
+{
+  event = "msg_showcmd",
+  kind = {}
+}
+{
+  event = "msg_showcmd",
+  kind = { { 0, "j", 0 } }
+}
+{
+  event = "msg_showcmd",
+  kind = {}
+}
+{
+  event = "msg_showcmd",
+  kind = { { 0, "d", 0 } }
+}
+{
+  event = "msg_showcmd",
+  kind = { { 0, "dd", 0 } }
+}
+{
+  event = "msg_showcmd",
+  kind = {}
+}
+{
+  event = "msg_showcmd",
+  kind = { { 0, "d", 0 } }
+}
+{
+  event = "msg_showcmd",
+  kind = { { 0, "dd", 0 } }
+}
+{
+  event = "msg_showcmd",
+  kind = {}
+}
+{
+  event = "msg_showcmd",
+  kind = { { 0, "d", 0 } }
+}
+{
+  event = "msg_showcmd",
+  kind = { { 0, "dd", 0 } }
+}
+{
+  event = "msg_showcmd",
+  kind = {}
+}
+{
+  event = "msg_showcmd",
+  kind = { { 0, ":", 0 } }
+}
+{ 0, ":", "", 0, 1, 0,
+  event = "cmdline_show",
+  kind = { { 0, "", 0 } }
+}
+{ 1, ":", "", 0, 1, 0,
+  event = "cmdline_show",
+  kind = { { 0, "q", 0 } }
+}
+{ false,
+  event = "cmdline_hide",
+  kind = 1
+}
+{ { { 59, "E37: No write since last change", 6 } }, false, true, false, 2, "typed_cmd",
+  event = "msg_show",
+  kind = "emsg"
+}
+{ { { 59, 'E162: No write since last change for buffer "/private/tmp/tmp-prompt.md"', 6 } }, false, true, false, 3, "typed_cmd",
+  event = "msg_show",
+  kind = "emsg"
+}
+{ 0, "", "Press any key to continue", 0, 1, 10,
+  event = "cmdline_show",
+  kind = { { 0, "", 0 } }
+}
+{ false,
+  event = "cmdline_hide",
+  kind = 1
+}
+{
+  event = "msg_showcmd",
+  kind = {}
+}
+{
+  event = "msg_showcmd",
+  kind = { { 0, ":", 0 } }
+}
+{ 0, ":", "", 0, 1, 0,
+  event = "cmdline_show",
+  kind = { { 0, "", 0 } }
+}
+{ 1, ":", "", 0, 1, 0,
+  event = "cmdline_show",
+  kind = { { 0, "q", 0 } }
+}
+{ 2, ":", "", 0, 1, 0,
+  event = "cmdline_show",
+  kind = { { 0, "q!", 0 } }
+}
+{ false,
+  event = "cmdline_hide",
+  kind = 1
+}

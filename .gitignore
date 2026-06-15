@@ -13,3 +13,5 @@ lua/cosmic/config/utils.lua
 ginit.vim
 .nvimlog
 nvim.log
+lua/cosmic/.DS_Store
+.DS_Store
